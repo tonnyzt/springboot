@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration scan="true" scanPeriod="1800 seconds" debug="false">
+
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+    <timestamp key="byDay" datePattern="yyyy-MM-dd"/>
+    <!--设置变量-->
+    <property name="log_path" value="D:/slefProject/springboot/springboot-parent/springboot-controller/target"/>
+    <property name="file_name" value="risk-api"/>
+    <property name="global_level" value="WARN"/>
+    <property name="spring_level" value="INFO"/>
+    <property name="project_level" value="DEBUG"/>
+    <property name="console_log_pattern" value="%red(%d{yyyy-MM-dd HH:mm:ss}) %green([%thread]) %highlight(%-5level) %boldMagenta(%logger{10}) - %cyan(%msg%n)"/>
+    <property name="file_log_pattern" value="${file_log_pattern:-%d{yyyy-MM-dd HH:mm:ss.SSS} ${LOG_LEVEL_PATTERN:-%5p} ${thread:- } --- [%t] %-40.40logger{39} : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
+
+    <!--
+    appender用来格式化日志输出节点，
+    有俩个属性name和class，class用来指定哪种输出策略，
+    常用就是控制台输出策略和文件输出策略
+    -->
+
+    <!--控制台日志-->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${console_log_pattern}</pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="file-debug" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>${file_log_pattern}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log_path}/${file_name}-debug.%d.log</fileNamePattern>
+        </rollingPolicy>
+        <!-- <triggeringPolicy
+                 class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+             <MaxFileSize>50MB</MaxFileSize>
+         </triggeringPolicy>-->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <appender name="file-info" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>${file_log_pattern}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log_path}/${file_name}-info.%d.log</fileNamePattern>
+        </rollingPolicy>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <appender name="file-warn" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>${file_log_pattern}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log_path}/${file_name}-warn.%d.log</fileNamePattern>
+        </rollingPolicy>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <appender name="file-error" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>${file_log_pattern}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log_path}/${file_name}-error.%d.log</fileNamePattern>
+        </rollingPolicy>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <logger name="java.sql" level="${global_level}"/>
+    <logger name="com.ibatis" level="${global_level}"/>
+    <logger name="venus" level="${global_level}"/>
+    <logger name="sun" level="${global_level}"/>
+    <logger name="druid" level="${global_level}"/>
+    <logger name="com.alibaba" level="${global_level}"/>
+    <logger name="org.quartz" level="${global_level}"/>
+    <logger name="org.mybatis" level="${global_level}"/>
+    <logger name="com.meidusa" level="${global_level}"/>
+    <logger name="org.apache" level="${global_level}"/>
+    <logger name="org.jboss" level="${global_level}"/>
+    <logger name="org.hibernate" level="${global_level}"/>
+    <logger name="redis" level="${global_level}"/>
+    <logger name="org.springframework" level="${spring_level}"/>
+
+
+    <root level="debug">
+        <appender-ref ref="console"/>
+    </root>
+
+    <!--<root level="${project_level}">-->
+        <!--<appender-ref ref="file-info"/>-->
+        <!--<appender-ref ref="file-debug"/>-->
+        <!--<appender-ref ref="file-warn"/>-->
+        <!--<appender-ref ref="file-error"/>-->
+    <!--</root>-->
+</configuration>
