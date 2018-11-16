@@ -8,7 +8,6 @@ import lombok.ToString;
  * Created by robot on 2016/4/19 0019.
  */
 @Data
-@ToString(callSuper = true)
 public class SystemCfg {
     private String key;
     private String value;
