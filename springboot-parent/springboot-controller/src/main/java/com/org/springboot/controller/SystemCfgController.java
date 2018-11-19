@@ -11,6 +11,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
+/**
+ * 系统配置控制器
+ *
+ * @Author: Tonny
+ * @CreateDate: 18/11/19 上午 11:32
+ * @Version: 1.0
+ */
 @RequestMapping(value = "config")
 @Controller
 public class SystemCfgController {

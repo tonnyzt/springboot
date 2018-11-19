@@ -10,12 +10,12 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-
 /**
  * 身份证工具类
  *
- * @author robot
- * @version 1.0, 2016-01-17
+ * @Author: Tonny
+ * @CreateDate: 18/11/19 上午 10:53
+ * @Version: 1.0
  */
 @Slf4j
 public class IdcardUtils extends StringUtils {
@@ -577,7 +577,7 @@ public class IdcardUtils extends StringUtils {
         }
         return sGender;
     }
-    
+
     public static String getCHGenderByIdCard(String idCard) {
         String sGender = "未知";
 

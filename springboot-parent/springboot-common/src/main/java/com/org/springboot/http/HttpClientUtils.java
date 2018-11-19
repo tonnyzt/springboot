@@ -18,6 +18,13 @@ import org.apache.http.util.EntityUtils;
 
 import java.util.*;
 
+/**
+ * http请求工具类
+ *
+ * @Author: Tonny
+ * @CreateDate: 18/11/19 上午 10:54
+ * @Version: 1.0
+ */
 @Slf4j
 public class HttpClientUtils {
 

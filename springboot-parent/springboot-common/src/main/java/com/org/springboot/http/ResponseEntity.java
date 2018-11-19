@@ -6,7 +6,11 @@ import lombok.ToString;
 import java.io.Serializable;
 
 /**
- * 响应类
+ * http请求响应类
+ *
+ * @Author: Tonny
+ * @CreateDate: 18/11/19 上午 10:55
+ * @Version: 1.0
  */
 @Data
 public class ResponseEntity implements Serializable {
