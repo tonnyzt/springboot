@@ -60,7 +60,8 @@ public class RedisConfig extends CachingConfigurerSupport {
         RedisCacheWriter redisCacheWriter = RedisCacheWriter.nonLockingRedisCacheWriter(connectionFactory);
         RedisCacheConfiguration defaultCacheConfig = RedisCacheConfiguration.defaultCacheConfig();
 
-        // spring 2.0 key，value值乱码
+        // springboot2.0需要在缓存管理的时候对key和value进行序列化操作
+        // springboot1.0可以不用下面3行
         RedisSerializer redisSerializer = new StringRedisSerializer();
         Jackson2JsonRedisSerializer serializer = this.getSerializer();
         RedisCacheConfiguration redisCacheConfiguration = defaultCacheConfig
