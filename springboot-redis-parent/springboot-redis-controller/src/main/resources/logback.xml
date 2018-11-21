@@ -5,7 +5,7 @@
 
     <timestamp key="byDay" datePattern="yyyy-MM-dd"/>
     <!--设置变量-->
-    <property name="log_path" value="D:/slefProject/springboot/springboot-parent/springboot-controller/target"/>
+    <property name="log_path" value="D:/slefProject/springboot/springboot-redis-parent/springboot-redis-controller/target"/>
     <property name="file_name" value="risk-api"/>
     <property name="global_level" value="WARN"/>
     <property name="spring_level" value="INFO"/>
